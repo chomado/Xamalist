@@ -9,6 +9,7 @@ using Android.Widget;
 using Android.OS;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace Xamalist.Droid
 {
@@ -18,6 +19,8 @@ namespace Xamalist.Droid
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+
+            CurrentPlatform.Init();
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 

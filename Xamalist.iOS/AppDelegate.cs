@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using Microsoft.Practices.Unity;
+using Microsoft.WindowsAzure.MobileServices;
 using Prism;
 using Prism.Unity;
 using UIKit;
@@ -26,6 +27,9 @@ namespace Xamalist.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            // Azure Mobile Service の初期化
+            CurrentPlatform.Init();
 
             LoadApplication(new App(new iOSInitializer()));
 
