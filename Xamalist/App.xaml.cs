@@ -7,6 +7,7 @@ namespace Xamalist
     {
         public App(IPlatformInitializer initializer = null) : base(initializer) { }
 
+        // アプリのエントリーポイント
         protected override void OnInitialized()
         {
             InitializeComponent();
@@ -14,6 +15,7 @@ namespace Xamalist
             NavigationService.NavigateAsync("MainPage?title=Hello%20from%20Xamarin.Forms");
         }
 
+        // コンテナに型を登録するメソッド
         protected override void RegisterTypes()
         {
             Container.RegisterTypeForNavigation<MainPage>();

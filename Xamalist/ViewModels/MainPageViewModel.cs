@@ -21,11 +21,13 @@ namespace Xamalist.ViewModels
 
         }
 
+        // 他のページえと画面遷移しようとしている時
         public void OnNavigatedFrom(NavigationParameters parameters)
         {
 
         }
 
+        // 画面遷移してきたときに呼ばれる
         public void OnNavigatedTo(NavigationParameters parameters)
         {
             if (parameters.ContainsKey("title"))
