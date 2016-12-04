@@ -22,8 +22,11 @@ namespace Xamalist
         {
             Container.RegisterTypeForNavigation<MainPage>();
 
+            // コンテナに モバイルサービスクライアントを登録
             var client = new MobileServiceClient(mobileAppUri: Consts.AzureWebsitesUrl);
             this.Container.RegisterInstance<IMobileServiceClient>(client);
+            // AppData をコンテナに シングルトンで登録
+            this.Container.RegisterType<IAppDataService, AppDataService>(new ContainerControlledLifetimeManager());
         }
     }
 }

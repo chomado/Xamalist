@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 namespace Xamalist
 {
     public interface IAppDataService
     {
-        Task<IEquatable<AppData>> GetAllAppDatas();
+        Task<IEnumerable<AppData>> GetAllAppDatas();
     }
 }

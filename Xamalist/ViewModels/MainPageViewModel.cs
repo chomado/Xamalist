@@ -4,24 +4,37 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Xamalist.ViewModels
 {
     public class MainPageViewModel : BindableBase, INavigationAware
     {
-        private string _title;
-        public string Title
+        public MainPageViewModel(IAppDataService appDataService)
         {
-            get { return _title; }
-            set { SetProperty(ref _title, value); }
+            this.appDataService = appDataService;
+            this.ReadAppDataCommand = new DelegateCommand(async () => await this.ReadAppDataAsync());
         }
 
-        public MainPageViewModel()
+        private IAppDataService appDataService;
+        private IEnumerable<AppData> appDatas;
+        public IEnumerable<AppData> AppDatas
         {
+            get { return this.appDatas; }
+            set { SetProperty(ref this.appDatas, value); } 
+        }
+        // データを読み込む時に呼ばれるコマンド
+        public DelegateCommand ReadAppDataCommand { get; }
 
+
+        // IAppDataService からデータを取ってきている
+        private async Task ReadAppDataAsync()
+        {
+            this.AppDatas = await this.appDataService.GetAllAppDatas();
         }
 
-        // 他のページえと画面遷移しようとしている時
+
+        // 他のページへと画面遷移しようとしている時
         public void OnNavigatedFrom(NavigationParameters parameters)
         {
 
@@ -30,8 +43,7 @@ namespace Xamalist.ViewModels
         // 画面遷移してきたときに呼ばれる
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            if (parameters.ContainsKey("title"))
-                Title = (string)parameters["title"] + " and Prism";
+            
         }
     }
 }
