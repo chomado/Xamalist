@@ -1,5 +1,7 @@
-﻿using Prism.Unity;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using Prism.Unity;
 using Xamalist.Views;
+using Microsoft.Practices.Unity;
 
 namespace Xamalist
 {
@@ -19,6 +21,9 @@ namespace Xamalist
         protected override void RegisterTypes()
         {
             Container.RegisterTypeForNavigation<MainPage>();
+
+            var client = new MobileServiceClient(mobileAppUri: Consts.AzureWebsitesUrl);
+            this.Container.RegisterInstance<IMobileServiceClient>(client);
         }
     }
 }
