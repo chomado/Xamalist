@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Microsoft.Practices.Unity;
+using Prism;
+using Prism.Unity;
 using UIKit;
 
 namespace Xamalist.iOS
