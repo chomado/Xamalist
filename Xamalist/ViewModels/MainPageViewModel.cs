@@ -54,7 +54,7 @@ namespace Xamalist.ViewModels
         private async Task ReadAppDataAsync()
         {
             this.IsBusy = true;
-            this.AppDatas = await this.appDataService.GetAllAppDatas();
+            this.AppDatas = await this.appDataService.GetAllAppDatasAsync();
             this.IsBusy = false;
         }
 

@@ -6,7 +6,12 @@
 		prism:ViewModelLocator.AutowireViewModel="True" 
 		Title="詳細ページ"
 		>
-	<ContentPage.Content>
+
+	<!-- iOS のとき、上に 20px 余白 -->
+	<ContentPage.Padding><OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"></OnPlatform></ContentPage.Padding>
+
+	<StackLayout>
+		<Label Text="{Binding AppDataItem.Name}" />
 		
-	</ContentPage.Content>
+	</StackLayout>
 </ContentPage>
