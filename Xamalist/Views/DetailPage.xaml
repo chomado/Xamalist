@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:Controls="clr-namespace:Xamalist.Controls" 
 		x:Class="Xamalist.Views.DetailPage"
 		xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
 		prism:ViewModelLocator.AutowireViewModel="True" 
@@ -20,11 +21,14 @@
 		</StackLayout>
 		
 		<Label Text="{Binding AppDataItem.IconImageUrl}" />
-		<Label Text="{Binding AppDataItem.SourceCodeUrl}" />
-		<Label Text="{Binding AppDataItem.StoreUrlIos}" />
-		<Label Text="{Binding AppDataItem.StoreUrlAndroid}" />
-		<Label Text="{Binding AppDataItem.StoreUrlWindows}" />
-		<Label Text="{Binding AppDataItem.StoreUrlMac}" />
+		
+		<Controls:HyperLinkLabel Text="{Binding AppDataItem.SourceCodeUrl}" />
+		
+		<Controls:HyperLinkLabel Text="{Binding AppDataItem.StoreUrlIos}" />
+		<Controls:HyperLinkLabel Text="{Binding AppDataItem.StoreUrlAndroid}" />
+		<Controls:HyperLinkLabel Text="{Binding AppDataItem.StoreUrlWindows}" />
+		<Controls:HyperLinkLabel Text="{Binding AppDataItem.StoreUrlMac}" />
+		
 		<!--<Label Text="{Binding AppDataItem.CategoryId}" />-->
 		<Label Text="{Binding AppDataItem.ScreenshotImageUrl}" />
 		<!--<Label Text="{Binding AppDataItem.AuthorId}" />-->
