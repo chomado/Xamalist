@@ -2,6 +2,7 @@
 using Prism.Unity;
 using Xamalist.Views;
 using Microsoft.Practices.Unity;
+using Xamarin.Forms;
 
 namespace Xamalist
 {
@@ -14,13 +15,14 @@ namespace Xamalist
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync("MainPage?title=Hello%20from%20Xamarin.Forms");
+            NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
         // コンテナに型を登録するメソッド
         protected override void RegisterTypes()
         {
-            Container.RegisterTypeForNavigation<MainPage>();
+            this.Container.RegisterTypeForNavigation<MainPage>(); // メモ：ここでコンテナに登録すると、画面遷移の時の URLで使えるようになる
+            this.Container.RegisterTypeForNavigation<NavigationPage>();
 
             // コンテナに モバイルサービスクライアントを登録
             var client = new MobileServiceClient(mobileAppUri: Consts.AzureWebsitesUrl);

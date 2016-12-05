@@ -4,7 +4,7 @@
 		xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
 		prism:ViewModelLocator.AutowireViewModel="True" 
 		x:Class="Xamalist.Views.MainPage" 
-		Title="MainPage"
+		Title="Xamalist"
 	>
 
 	<!-- iOS のとき、上に 20px 余白 -->
