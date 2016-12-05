@@ -6,14 +6,16 @@
 		x:Class="Xamalist.Views.MainPage" 
 		Title="Xamalist"
 	>
-
+	<ContentPage.ToolbarItems>
+		<!-- データ読み込みボタン -->
+		<ToolbarItem Text="更新" Command="{Binding ReadAppDataCommand}" />
+	</ContentPage.ToolbarItems>
+	
 	<!-- iOS のとき、上に 20px 余白 -->
 	<ContentPage.Padding><OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"></OnPlatform></ContentPage.Padding>
 
 	<Grid>
 		<StackLayout>
-			<!-- データ読み込みボタン -->
-			<Button Text="データ読み込み" Command="{Binding ReadAppDataCommand}" />
 			<!-- データ一覧リスト -->
 			<ListView ItemsSource="{Binding AppDatas}">
 				<ListView.ItemTemplate>
