@@ -10,8 +10,29 @@
 	<!-- iOS のとき、上に 20px 余白 -->
 	<ContentPage.Padding><OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"></OnPlatform></ContentPage.Padding>
 
-	<StackLayout>
-		<Label Text="{Binding AppDataItem.Name}" />
+	<StackLayout Padding="10">
+		<StackLayout Orientation="Horizontal">
+			<Image Source="https://pbs.twimg.com/profile_images/428063035995869184/aSdLGr6h.jpeg" 
+				WidthRequest="70" 
+				HeightRequest="70" />
+			
+			<Label Text="{Binding AppDataItem.Name}" HorizontalOptions="FillAndExpand" FontSize="30" FontAttributes="Bold" />
+		</StackLayout>
+		
+		<Label Text="{Binding AppDataItem.IconImageUrl}" />
+		<Label Text="{Binding AppDataItem.SourceCodeUrl}" />
+		<Label Text="{Binding AppDataItem.StoreUrlIos}" />
+		<Label Text="{Binding AppDataItem.StoreUrlAndroid}" />
+		<Label Text="{Binding AppDataItem.StoreUrlWindows}" />
+		<Label Text="{Binding AppDataItem.StoreUrlMac}" />
+		<!--<Label Text="{Binding AppDataItem.CategoryId}" />-->
+		<Label Text="{Binding AppDataItem.ScreenshotImageUrl}" />
+		<!--<Label Text="{Binding AppDataItem.AuthorId}" />-->
+		<Label Text="{Binding AppDataItem.AnnoucingArticleUrl}" />
+		<Label Text="{Binding AppDataItem.Backend}" />
+		<Label Text="{Binding AppDataItem.IsXamarinNative}" />
+		<Label Text="{Binding AppDataItem.IsXamarinForms}" />
+		<Label Text="{Binding AppDataItem.UsedLibrary}" />
 		
 	</StackLayout>
 </ContentPage>
