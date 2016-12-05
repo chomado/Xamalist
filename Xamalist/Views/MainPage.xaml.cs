@@ -21,13 +21,16 @@ namespace Xamalist.Views
 				
 			var listView = (ListView)sender;
 
+			// 渡ってきた、アプリの情報(AppDataのアイテム)
+			var appDataItem = (AppData)e.SelectedItem;
+
 			// タップしても色が変わらないようにする処理
 			listView.SelectedItem = null;
 
 			var mainPageViewModel = (MainPageViewModel)this.BindingContext;
 
 			// 詳細ページへの遷移のコマンド実行
-			mainPageViewModel.NavigateToDetailCommand.Execute();
+			mainPageViewModel.NavigateToDetailCommand.Execute(appDataItem.Id);
 		}
     }
 }

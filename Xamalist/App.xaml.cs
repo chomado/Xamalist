@@ -23,7 +23,7 @@ namespace Xamalist
         {
             this.Container.RegisterTypeForNavigation<MainPage>(); // メモ：ここでコンテナに登録すると、画面遷移の時の URLで使えるようになる
 			this.Container.RegisterTypeForNavigation<NavigationPage>();
-			this.Container.RegisterTypeForNavigation<DetailPage>();
+			this.Container.RegisterTypeForNavigation<DetailPage>(); // 詳細ページも登録
 
             // コンテナに モバイルサービスクライアントを登録
             var client = new MobileServiceClient(mobileAppUri: Consts.AzureWebsitesUrl);

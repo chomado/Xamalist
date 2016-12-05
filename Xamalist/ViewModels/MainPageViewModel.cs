@@ -22,8 +22,8 @@ namespace Xamalist.ViewModels
             .ObservesProperty(propertyExpression: () => this.IsBusy); // IsBusyプロパティを監視し、IsBusyに変化があったら、CanExecuteChangedイベントを発行する
 
 			// 詳細ページへと遷移する時のコマンドを定義
-			this.NavigateToDetailCommand = new DelegateCommand(
-				executeMethod: async () => await navigationService.NavigateAsync(name: "DetailPage")
+			this.NavigateToDetailCommand = new DelegateCommand<string>(
+				executeMethod: async id => await navigationService.NavigateAsync(name: $"DetailPage?id={id}")
 			);
         }
 
@@ -46,8 +46,8 @@ namespace Xamalist.ViewModels
         // データを読み込む時に呼ばれるコマンド
         public DelegateCommand ReadAppDataCommand { get; }
 
-        // 詳細ページへと遷移したい時に呼ばれるコマンド
-        public DelegateCommand NavigateToDetailCommand { get; }
+		// 詳細ページへと遷移したい時に呼ばれるコマンド (引数はアプリID)
+		public DelegateCommand<string> NavigateToDetailCommand { get; }
 
 
         // IAppDataService からデータを取ってきている

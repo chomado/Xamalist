@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace Xamalist
+namespace Xamalist.Views
 {
 	public partial class DetailPage : ContentPage
 	{
