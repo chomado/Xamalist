@@ -22,12 +22,12 @@
 		
 		<Label Text="{Binding AppDataItem.IconImageUrl}" />
 		
-		<Controls:HyperLinkLabel Text="{Binding AppDataItem.SourceCodeUrl}" />
+		<Controls:HyperLinkLabel Text="ソースコード置き場" Url="{Binding AppDataItem.SourceCodeUrl}" />
 		
-		<Controls:HyperLinkLabel Text="{Binding AppDataItem.StoreUrlIos}" />
-		<Controls:HyperLinkLabel Text="{Binding AppDataItem.StoreUrlAndroid}" />
-		<Controls:HyperLinkLabel Text="{Binding AppDataItem.StoreUrlWindows}" />
-		<Controls:HyperLinkLabel Text="{Binding AppDataItem.StoreUrlMac}" />
+		<Controls:HyperLinkLabel Text="iOS" Url="{Binding AppDataItem.StoreUrlIos}" />
+		<Controls:HyperLinkLabel Text="Android" Url="{Binding AppDataItem.StoreUrlAndroid}" />
+		<Controls:HyperLinkLabel Text="Windows" Url="{Binding AppDataItem.StoreUrlWindows}" />
+		<Controls:HyperLinkLabel Text="Mac" Url="{Binding AppDataItem.StoreUrlMac}" />
 		
 		<!--<Label Text="{Binding AppDataItem.CategoryId}" />-->
 		<Label Text="{Binding AppDataItem.ScreenshotImageUrl}" />
