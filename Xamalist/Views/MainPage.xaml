@@ -17,7 +17,7 @@
 	<Grid>
 		<StackLayout>
 			<!-- データ一覧リスト -->
-			<ListView ItemsSource="{Binding AppDatas}">
+			<ListView ItemSelected="OnItemTapped" ItemsSource="{Binding AppDatas}">
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<!-- メモ：ViewCell の中は複雑なレイアウトを組むことができる -->

@@ -10,7 +10,7 @@ namespace Xamalist.ViewModels
 {
     public class MainPageViewModel : BindableBase, INavigationAware
     {
-        public MainPageViewModel(IAppDataService appDataService)
+		public MainPageViewModel(IAppDataService appDataService, INavigationService navigationService)
         {
             this.appDataService = appDataService;
 
@@ -20,6 +20,11 @@ namespace Xamalist.ViewModels
                 canExecuteMethod: () => !this.IsBusy
             )
             .ObservesProperty(propertyExpression: () => this.IsBusy); // IsBusyプロパティを監視し、IsBusyに変化があったら、CanExecuteChangedイベントを発行する
+
+			// 詳細ページへと遷移する時のコマンドを定義
+			this.NavigateToDetailCommand = new DelegateCommand(
+				executeMethod: async () => await navigationService.NavigateAsync(name: "DetailPage")
+			);
         }
 
         private IAppDataService appDataService;
@@ -40,6 +45,9 @@ namespace Xamalist.ViewModels
 
         // データを読み込む時に呼ばれるコマンド
         public DelegateCommand ReadAppDataCommand { get; }
+
+        // 詳細ページへと遷移したい時に呼ばれるコマンド
+        public DelegateCommand NavigateToDetailCommand { get; }
 
 
         // IAppDataService からデータを取ってきている
