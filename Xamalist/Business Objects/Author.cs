@@ -1,6 +1,7 @@
 ﻿using System;
 namespace Xamalist
 {
+    // アプリ製作者についての情報
     public class Author
     {
         public Author()
