@@ -48,6 +48,7 @@
     <Compile Include="ViewModels\DetailPageViewModel.cs" />
     <Compile Include="Controls\HyperLinkLabel.cs" />
     <Compile Include="Commons\IconEnableDisableConverter.cs" />
+    <Compile Include="Commons\UrlToVisibleConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">

@@ -12,6 +12,7 @@
 	<ContentPage.Resources>
 		<ResourceDictionary>
 			<converters:IconEnableDisableConverter x:Key="IconEnableDisableConverter" />
+			<converters:UrlToVisibleConverter x:Key="UrlToVisibleConverter" />
 		</ResourceDictionary>
 	</ContentPage.Resources>
 	
@@ -50,6 +51,7 @@
 									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 										<!-- GitHub -->
 										<Image Source="githubAvailable.png" 
+												 IsVisible="{Binding SourceCodeUrl,Converter={StaticResource UrlToVisibleConverter}}" 
 												 HorizontalOptions="Start"
 								                 WidthRequest="20"
 								                 HeightRequest="20"/>
