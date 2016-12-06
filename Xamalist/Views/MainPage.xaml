@@ -24,46 +24,35 @@
 						<ViewCell>
 							<!-- 一行 -->
 							<StackLayout Orientation="Horizontal" Margin="2.5">
-				                <Image Source="{Binding IconImageUrl}" 
-				                       WidthRequest="60"
-				                       HeightRequest="60"/>
-				                <StackLayout HorizontalOptions="FillAndExpand">
-									<Label Text="{Binding Name}"
-				                         FontSize="18"
-				                         FontAttributes="Bold"
-				                         VerticalTextAlignment="Center"
-				                         LineBreakMode="TailTruncation"/>
-									<Label Text="{Binding Description}"
-				                         VerticalTextAlignment="Center"/>
-									
-				                </StackLayout>
-				                <Grid>
-				                  <Grid.RowDefinitions>
-				                    <RowDefinition Height="Auto" />
-				                    <RowDefinition Height="Auto" />
-				                  </Grid.RowDefinitions>
-				                  <Grid.ColumnDefinitions>
-				                    <ColumnDefinition Width="Auto" />
-				                    <ColumnDefinition Width="Auto" />
-				                  </Grid.ColumnDefinitions>
-				                  <Image Source="androidEnable.png" 
-				                       WidthRequest="20"
-				                       HeightRequest="20"/>
-				                  <Image Source="androidEnable.png" 
-				                       	WidthRequest="20"
-				                       	HeightRequest="20"
-										Grid.Row="1"/>
-				                  <Image Source="androidEnable.png" 
-				                       	WidthRequest="20"
-				                       	HeightRequest="20"
-				                         Grid.Column="1"/>
-				                  <Image Source="androidEnable.png" 
-				                       	WidthRequest="20"
-				                       	HeightRequest="20" 
-				                         Grid.Row="1"
-				                         Grid.Column="1"/>
-				                </Grid>                
-				              </StackLayout>
+						        <Image Source="{Binding IconImageUrl}" 
+						                WidthRequest="70"
+						                HeightRequest="70"/>
+						        <StackLayout HorizontalOptions="FillAndExpand" Margin="6">
+									<!-- アプリ名 -->
+							        <Label Text="{Binding Name}"
+		  			                 	 	FontSize="14"
+											TextColor="#505050"
+						                 	FontAttributes="Bold"
+						                 	LineBreakMode="TailTruncation"/>
+									<!-- アプリ一言説明の行 -->
+									<Label Text="{Binding Description}" FontSize="10" TextColor="Gray"/>
+									<!-- プラットフォームのアイコン行 -->
+			                  		<StackLayout Orientation="Horizontal" HorizontalOptions="End">
+							            <Image Source="androidEnable.png" 
+							                 WidthRequest="20"
+							                 HeightRequest="20"/>
+							            <Image Source="iosEnable.png" 
+							                 WidthRequest="20"
+							                 HeightRequest="20"/>
+							            <Image Source="androidDisable.png" 
+							                   WidthRequest="20"
+							                   HeightRequest="20"/>
+							            <Image Source="iosDisable.png" 
+							                   WidthRequest="20"
+							                   HeightRequest="20"/>
+			                  		</StackLayout>
+						        </StackLayout>
+					        </StackLayout>
 						</ViewCell>
 					</DataTemplate>
 				</ListView.ItemTemplate>

@@ -159,6 +159,8 @@
   <ItemGroup>
     <BundleResource Include="Resources\androidDisable.png" />
     <BundleResource Include="Resources\androidEnable.png" />
+    <BundleResource Include="Resources\iosDisable.png" />
+    <BundleResource Include="Resources\iosEnable.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
