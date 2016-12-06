@@ -13,7 +13,7 @@
 
 	<StackLayout Padding="10">
 		<StackLayout Orientation="Horizontal">
-			<Image Source="https://pbs.twimg.com/profile_images/428063035995869184/aSdLGr6h.jpeg" 
+			<Image Source="{Binding AppDataItem.IconImageUrl}" 
 				WidthRequest="70" 
 				HeightRequest="70" />
 			

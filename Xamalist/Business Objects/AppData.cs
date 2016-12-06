@@ -8,24 +8,24 @@ namespace Xamalist
         {
         }
 
-		// todo: 追加したいプロパティ
-		// public bool IsDeveloper { get; set; }
-		// public string Comment { get; set; } // 苦労したところなど長文コメント
-		// public string Description { get; set; } // このアプリを一言で説明すると(20字くらい)「GitHub で草を途切れさせないためのアプリ」
-
         // 勝手に採番されるID
         public string Id { get; set; }
 
         // 内部で持つ情報。表示非表示フラグ。管理者によるチェックが済んだもののみ表示される
         public bool IsVisible { get; set; }
 
+		// このアプリはアプリ開発者本人によって登録されたか
+		public bool IsRegisteredByItsDeveloper { get; set; }
+
         // アプリの名前
         public string Name { get; set; }
         // アプリのアイコンの画像URL
         public string IconImageUrl { get; set; }
+		// このアプリを一言で説明すると(20字くらい)（例「Xamarin製アプリ一覧アプリ」）
+		public string Description { get; set; }
 
-        // ストアのURL。iOS/ Android/ Windows/ Mac
-        public string StoreUrlIos { get; set; }
+		// ストアのURL。iOS/ Android/ Windows/ Mac
+		public string StoreUrlIos { get; set; }
         public string StoreUrlAndroid { get; set; }
         public string StoreUrlWindows { get; set; }
         public string StoreUrlMac { get; set; }
@@ -55,7 +55,10 @@ namespace Xamalist
         // 使ったライブラリについて。Prism/ SkiaSharp etc..
         public string UsedLibrary { get; set; }
 
+		// 苦労したところなど長文コメント
+		public string Comment { get; set; }
+
 		// ーーーーーーーーーーーーーーーーーーーー
 
-    }
+	}
 }
