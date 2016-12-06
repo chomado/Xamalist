@@ -31,26 +31,32 @@
 									<!-- アプリ名 -->
 							        <Label Text="{Binding Name}"
 		  			                 	 	FontSize="14"
-											TextColor="#505050"
 						                 	FontAttributes="Bold"
 						                 	LineBreakMode="TailTruncation"/>
+									
 									<!-- アプリ一言説明の行 -->
 									<Label Text="{Binding Description}" FontSize="10" TextColor="Gray"/>
+									
 									<!-- プラットフォームのアイコン行 -->
-			                  		<StackLayout Orientation="Horizontal" HorizontalOptions="End">
-							            <Image Source="androidEnable.png" 
-							                 WidthRequest="20"
-							                 HeightRequest="20"/>
-							            <Image Source="iosEnable.png" 
-							                 WidthRequest="20"
-							                 HeightRequest="20"/>
-							            <Image Source="androidDisable.png" 
-							                   WidthRequest="20"
-							                   HeightRequest="20"/>
-							            <Image Source="iosDisable.png" 
-							                   WidthRequest="20"
-							                   HeightRequest="20"/>
-			                  		</StackLayout>
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+										<!-- GitHub -->
+										<Image Source="githubAvailable.png" 
+												 HorizontalOptions="Start"
+								                 WidthRequest="20"
+								                 HeightRequest="20"/>
+										<!-- プラットフォームのアイコン -->
+				                  		<StackLayout Orientation="Horizontal" HorizontalOptions="End">
+								            <Image Source="androidEnable.png" 
+								                 WidthRequest="20"
+								                 HeightRequest="20"/>
+								            <Image Source="iosEnable.png" 
+								                 WidthRequest="20"
+								                 HeightRequest="20"/>
+								            <Image Source="windowsDisable.png" 
+								                   WidthRequest="20"
+								                   HeightRequest="20"/>
+				                  		</StackLayout>
+									</StackLayout>
 						        </StackLayout>
 					        </StackLayout>
 						</ViewCell>
