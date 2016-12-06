@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:converters="clr-namespace:Xamalist.Commons" 
 		xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
 		prism:ViewModelLocator.AutowireViewModel="True" 
 		x:Class="Xamalist.Views.MainPage" 
 		Title="Xamalist"
 	>
+	
+	<!-- converters のインスタンスを Resource に追加。Binding で使うため -->
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<converters:IconEnableDisableConverter x:Key="IconEnableDisableConverter" />
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	
 	<ContentPage.ToolbarItems>
 		<!-- データ読み込みボタン -->
 		<ToolbarItem Text="更新" Command="{Binding ReadAppDataCommand}" />
@@ -46,13 +55,13 @@
 								                 HeightRequest="20"/>
 										<!-- プラットフォームのアイコン -->
 				                  		<StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-								            <Image Source="androidEnable.png" 
+								            <Image Source="{Binding StoreUrlIos,Converter={StaticResource IconEnableDisableConverter},ConverterParameter=ios}" 
 								                 WidthRequest="20"
 								                 HeightRequest="20"/>
-								            <Image Source="iosEnable.png" 
+								            <Image Source="{Binding StoreUrlAndroid,Converter={StaticResource IconEnableDisableConverter},ConverterParameter=android}" 
 								                 WidthRequest="20"
 								                 HeightRequest="20"/>
-								            <Image Source="windowsDisable.png" 
+								            <Image Source="{Binding StoreUrlWindows,Converter={StaticResource IconEnableDisableConverter},ConverterParameter=windows}" 
 								                   WidthRequest="20"
 								                   HeightRequest="20"/>
 				                  		</StackLayout>
