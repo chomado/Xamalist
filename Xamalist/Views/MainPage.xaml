@@ -45,7 +45,7 @@
 								                 WidthRequest="20"
 								                 HeightRequest="20"/>
 										<!-- プラットフォームのアイコン -->
-				                  		<StackLayout Orientation="Horizontal" HorizontalOptions="End">
+				                  		<StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
 								            <Image Source="androidEnable.png" 
 								                 WidthRequest="20"
 								                 HeightRequest="20"/>
