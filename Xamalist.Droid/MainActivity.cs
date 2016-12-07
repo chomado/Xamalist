@@ -14,10 +14,13 @@ using Microsoft.WindowsAzure.MobileServices;
 namespace Xamalist.Droid
 {
     [Activity(Label = "Xamalist.Droid", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
+    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
+            TabLayoutResource = Resource.Layout.tabs;
+            ToolbarResource = Resource.Layout.toolbar;
+
             base.OnCreate(bundle);
 
             CurrentPlatform.Init();
