@@ -11,8 +11,9 @@ namespace Xamalist.ViewModels
 {
     public class RegisterPageViewModel : BindableBase
     {
-        public RegisterPageViewModel(IAppDataService appDataService, IPageDialogService pageDialogService)
+        public RegisterPageViewModel(INavigationService navigationService, IAppDataService appDataService, IPageDialogService pageDialogService)
         {
+            this.navigationService = navigationService; // ページ遷移に必要
             this.appDataService = appDataService; // データの登録に必要
             this.pageDialogService = pageDialogService; // アラートを出すために必要な人
 
@@ -24,6 +25,7 @@ namespace Xamalist.ViewModels
             .ObservesProperty(propertyExpression: () => this.IsBusy); // IsBusyプロパティを監視し、IsBusyに変化があったら、CanExecuteChangedイベントを発行する
         }
 
+        private INavigationService navigationService;
         private IAppDataService appDataService;
         private IPageDialogService pageDialogService;
 
@@ -48,6 +50,7 @@ namespace Xamalist.ViewModels
             set { SetProperty(ref this.registeringAppData, value); }
         }
 
+        // 「登録」ボタンが押された時の処理
         private async Task RegisterAppDataAsync()
         {
             /* 登録ボタンが押される
@@ -60,11 +63,15 @@ namespace Xamalist.ViewModels
             await this.appDataService.InsertAppDataAsync(this.RegisteringAppData);
             this.IsBusy = false;
 
+            // 登録が完了したらアラートを出す
             await this.pageDialogService.DisplayAlertAsync(
                 title: "登録完了",
                 message: $"{this.registeringAppData.Name} の登録が完了しました",
                 cancelButton: "OK"
             );
+
+            // 前の画面に戻る
+            await this.navigationService.GoBackAsync();
         }
 	}
 }
