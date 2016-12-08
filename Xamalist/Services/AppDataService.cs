@@ -18,6 +18,8 @@ namespace Xamalist
 		// Azure Mobile Apps から、データを全件(max50)取ってくる
         public async Task<IEnumerable<AppData>> GetAllAppDatasAsync()
         {
+            // TODO: IsVisible が false のものは除外する
+            // TODO: Paging 対応 (50件しか取ってこないので)
             return await this.appDataTable.CreateQuery().ToEnumerableAsync();
         }
 
