@@ -25,6 +25,11 @@ namespace Xamalist.ViewModels
 			this.NavigateToDetailCommand = new DelegateCommand<string>(
 				executeMethod: async id => await navigationService.NavigateAsync(name: $"DetailPage?id={id}")
 			);
+
+            // 登録ページへと遷移する時のコマンドを定義
+            this.NavigateToRegisterPageCommand = new DelegateCommand(
+                executeMethod: async () => await navigationService.NavigateAsync(name: "RegisterPage")
+            );
         }
 
         private IAppDataService appDataService;
@@ -48,6 +53,9 @@ namespace Xamalist.ViewModels
 
 		// 詳細ページへと遷移したい時に呼ばれるコマンド (引数はアプリID)
 		public DelegateCommand<string> NavigateToDetailCommand { get; }
+
+        // 新規登録ページへと遷移したい時に呼ばれるコマンド
+        public DelegateCommand NavigateToRegisterPageCommand { get; }
 
 
         // IAppDataService からデータを取ってきている

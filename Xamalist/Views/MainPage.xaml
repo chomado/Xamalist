@@ -17,6 +17,8 @@
 	</ContentPage.Resources>
 	
 	<ContentPage.ToolbarItems>
+		<!-- 新規登録ボタン -->
+		<ToolbarItem Text="登録" Command="{Binding NavigateToRegisterPageCommand}" />
 		<!-- データ読み込みボタン -->
 		<ToolbarItem Text="更新" Command="{Binding ReadAppDataCommand}" />
 	</ContentPage.ToolbarItems>
