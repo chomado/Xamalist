@@ -56,6 +56,7 @@
     <Compile Include="Commons\RegisteredAppDataEvent.cs" />
     <Compile Include="Commons\StringExtentions.cs" />
     <Compile Include="Services\IFileUploadService.cs" />
+    <Compile Include="Commons\Consts_sample.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
