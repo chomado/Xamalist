@@ -6,9 +6,9 @@
 
 ![Startup project](./doc_image/app_screenshot.png)
 
-C# だけで、iOS/ Android アプリを作っています。Swift/Obj-C も Java も 1行も書いていません。
-UIは XAML(ザムル)というマークアップ言語を使っています。
-コードは今のところ iOS/Android間で 9.5割くらい共通化しています。
+C# だけで、iOS/ Android アプリを作っています。Swift/Obj-C も Java も 1行も書いていません。    
+UIは XAML(ザムル)というマークアップ言語を使っています。    
+コードは今のところ iOS/Android間で 9.5割くらい共通化しています。    
 
 ![XamarinForms](https://blog.xamarin.com/wp-content/uploads/2014/06/XamarinForms1.png)
 
