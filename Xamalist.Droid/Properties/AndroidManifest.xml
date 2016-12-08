@@ -1,5 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.chomado.xamalist">
 	<uses-sdk android:minSdkVersion="15" />
-	<application android:label="Xamalist" android:theme="@style/MyTheme"></application>
+	<application android:label="Xamalist" android:theme="@style/MyTheme">
+	
+		<!-- android N をターゲットにした時には必要
+		<provider android:name="android.support.v4.content.FileProvider" 
+					android:authorities="com.chomado.xamalist.fileprovider" 
+					android:exported="false" 
+					android:grantUriPermissions="true">
+				<meta-data android:name="android.support.FILE_PROVIDER_PATHS" 
+					android:resource="@xml/file_paths"></meta-data>
+		</provider>
+		-->
+	</application>
 </manifest>

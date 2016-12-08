@@ -10,7 +10,11 @@ using Android.OS;
 using Prism.Unity;
 using Microsoft.Practices.Unity;
 using Microsoft.WindowsAzure.MobileServices;
+using Plugin.Permissions;
 
+// Android のマニフェストに対しての処理。パーミッションを求めている
+[assembly: UsesFeature("android.hardware.camera", Required = false)]
+[assembly: UsesFeature("android.hardware.camera.autofocus", Required = false)]
 namespace Xamalist.Droid
 {
     [Activity(Label = "Xamalist.Droid", Icon = "@drawable/icon", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
@@ -28,6 +32,11 @@ namespace Xamalist.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
             LoadApplication(new App(new AndroidInitializer()));
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 
