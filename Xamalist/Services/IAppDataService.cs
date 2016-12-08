@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-namespace Xamalist
+namespace Xamalist.Services
 {
     public interface IAppDataService
     {

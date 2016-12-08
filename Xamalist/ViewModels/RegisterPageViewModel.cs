@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Prism.Services;
 using Prism.Events;
 using Xamalist.Commons;
+using Xamalist.Services;
 
 namespace Xamalist.ViewModels
 {

@@ -3,6 +3,7 @@ using Prism.Unity;
 using Xamalist.Views;
 using Microsoft.Practices.Unity;
 using Xamarin.Forms;
+using Xamalist.Services;
 
 namespace Xamalist
 {
