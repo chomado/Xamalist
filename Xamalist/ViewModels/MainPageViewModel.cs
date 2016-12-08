@@ -10,6 +10,10 @@ namespace Xamalist.ViewModels
 {
     public class MainPageViewModel : BindableBase, INavigationAware
     {
+        /* データをリフレッシュするタイミング
+         *  1. 初回表示
+         *  2. 登録ページから戻ってきた時
+         */
 		public MainPageViewModel(IAppDataService appDataService, INavigationService navigationService)
         {
             this.appDataService = appDataService;
@@ -30,6 +34,9 @@ namespace Xamalist.ViewModels
             this.NavigateToRegisterPageCommand = new DelegateCommand(
                 executeMethod: async () => await navigationService.NavigateAsync(name: "RegisterPage")
             );
+
+            // 初回表示時にデータがリフレッシュされる
+            this.ReadAppDataAsync();
         }
 
         private IAppDataService appDataService;
