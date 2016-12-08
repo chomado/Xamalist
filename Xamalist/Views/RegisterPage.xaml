@@ -21,11 +21,11 @@
 			<Label Text="アプリ名" />
 			<Entry Text="{Binding RegisteringAppData.Name}" />
 
-			<!--
+
 			<Label Text="アイコン画像" />
-			<Button Text="参照" />
-			<Image />
-			-->
+			<Button Text="参照" Clicked="OnImageButtonClicked" />
+			<Image x:Name="ImagePreview" />
+
 			
 			<Label Text="アプリ簡易説明" />
 			<Entry Text="{Binding RegisteringAppData.Description}" />
