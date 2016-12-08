@@ -15,21 +15,25 @@
 	
 	<!-- iOS のとき、上に 20px 余白 -->
 	<ContentPage.Padding><OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"></OnPlatform></ContentPage.Padding>
+	<Grid>
+		<StackLayout>
+			
+			<Label Text="アプリ名" />
+			<Entry Text="{Binding RegisteringAppData.Name}" />
 
-	<StackLayout>
-		
-		<Label Text="アプリ名" />
-		<Entry Text="{Binding RegisteringAppData.Name}" />
+			<!--
+			<Label Text="アイコン画像" />
+			<Button Text="参照" />
+			<Image />
+			-->
+			
+			<Label Text="アプリ簡易説明" />
+			<Entry Text="{Binding RegisteringAppData.Description}" />
+			
+		</StackLayout>
 
-		<!--
-		<Label Text="アイコン画像" />
-		<Button Text="参照" />
-		<Image />
-		-->
-		
-		<Label Text="アプリ簡易説明" />
-		<Entry Text="{Binding RegisteringAppData.Description}" />
-		
-	</StackLayout>
-	
+
+		<!-- 読み込み中はスピナーを表示する -->
+		<ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+	</Grid>
 </ContentPage>
