@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Prism.Services;
 using Prism.Events;
+using Xamalist.Commons;
 
 namespace Xamalist.ViewModels
 {
@@ -22,9 +23,15 @@ namespace Xamalist.ViewModels
             // 登録ボタンが押された時のコマンドを定義
             this.RegisterCommand = new DelegateCommand(
                 executeMethod:    async () => await this.RegisterAppDataAsync(),
-                canExecuteMethod: () => !this.IsBusy /* コマンドが実行可能のときに true を返す */
+                canExecuteMethod: () => !this.IsBusy && this.IsValidEnrtry() /* コマンドが実行可能のときに true を返す */
             )
             .ObservesProperty(propertyExpression: () => this.IsBusy); // IsBusyプロパティを監視し、IsBusyに変化があったら、CanExecuteChangedイベントを発行する
+
+            // プロパティの値が変わった時の処理
+            this.RegisteringAppData.PropertyChanged += (sender, e) => {
+                // コマンドが実行可能かどうか再度評価してください
+                this.RegisterCommand.RaiseCanExecuteChanged();
+            };
         }
 
         private INavigationService navigationService;
@@ -78,6 +85,13 @@ namespace Xamalist.ViewModels
 
             // 「登録完了」イベントを発行する
             this.eventAggregator.GetEvent<RegisteredAppDataEvent>().Publish();
+        }
+
+        // 入力値のバリデーション。これが true にならないと「登録」ボタンは押せない
+        private bool IsValidEnrtry()
+        {
+            var item = this.RegisteringAppData;
+            return !item.Name.IsNullOrEmpty() && !item.Description.IsNullOrEmpty();
         }
 	}
 }

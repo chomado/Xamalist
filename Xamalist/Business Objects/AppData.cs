@@ -1,8 +1,10 @@
 ﻿using System;
+using Prism.Mvvm;
+
 namespace Xamalist
 {
     // アプリについての詳細データ。１レコード１アプリ
-    public class AppData
+    public class AppData : BindableBase
     {
         public AppData()
         {
@@ -18,11 +20,24 @@ namespace Xamalist
 		public bool IsRegisteredByItsDeveloper { get; set; }
 
         // アプリの名前
-        public string Name { get; set; }
+        private string name;
+        public string Name
+        {
+            get { return this.name; }
+            set { SetProperty(ref this.name, value); }
+        }
+
         // アプリのアイコンの画像URL
         public string IconImageUrl { get; set; }
+
 		// このアプリを一言で説明すると(20字くらい)（例「Xamarin製アプリ一覧アプリ」）
-		public string Description { get; set; }
+        private string description;
+        public string Description
+        {
+            get { return this.description; }
+            set { SetProperty(ref this.description, value); }
+        }
+
 
 		// ストアのURL。iOS/ Android/ Windows/ Mac
 		public string StoreUrlIos { get; set; }
