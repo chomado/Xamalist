@@ -26,5 +26,11 @@ namespace Xamalist
 		{
 			return this.appDataTable.LookupAsync(id);
 		}
-	}
+
+        // AppData を 1件 Azureに登録するメソッド。登録ページで使う
+        public Task InsertAppDataAsync(AppData appData)
+        {
+            return this.appDataTable.InsertAsync(instance: appData);
+        }
+    }
 }

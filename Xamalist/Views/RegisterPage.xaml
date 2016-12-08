@@ -3,7 +3,33 @@
 		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 		xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
 		prism:ViewModelLocator.AutowireViewModel="True" 
-		x:Class="Xamalist.Views.RegisterPage">
-	<ContentPage.Content>
-	</ContentPage.Content>
+		x:Class="Xamalist.Views.RegisterPage"
+		Title="新規登録申請"
+	>
+
+
+	<ContentPage.ToolbarItems>
+		<!-- 新規登録ボタン -->
+		<ToolbarItem Text="登録" Command="{Binding RegisterCommand}" />
+	</ContentPage.ToolbarItems>
+	
+	<!-- iOS のとき、上に 20px 余白 -->
+	<ContentPage.Padding><OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"></OnPlatform></ContentPage.Padding>
+
+	<StackLayout>
+		
+		<Label Text="アプリ名" />
+		<Entry Text="{Binding RegisteringAppData.Name}" />
+
+		<!--
+		<Label Text="アイコン画像" />
+		<Button Text="参照" />
+		<Image />
+		-->
+		
+		<Label Text="アプリ簡易説明" />
+		<Entry Text="{Binding RegisteringAppData.Description}" />
+		
+	</StackLayout>
+	
 </ContentPage>
