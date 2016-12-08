@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="ViewModels\RegisterPageViewModel.cs" />
     <Compile Include="Commons\RegisteredAppDataEvent.cs" />
+    <Compile Include="Commons\StringExtentions.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
