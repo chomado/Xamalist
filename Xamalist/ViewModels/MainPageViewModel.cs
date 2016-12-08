@@ -1,6 +1,7 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+using Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,13 @@ namespace Xamalist.ViewModels
          *  1. 初回表示
          *  2. 登録ページから戻ってきた時
          */
-		public MainPageViewModel(IAppDataService appDataService, INavigationService navigationService)
+		public MainPageViewModel(IAppDataService appDataService, INavigationService navigationService, IEventAggregator eventAggregator)
         {
             this.appDataService = appDataService;
+            this.eventAggregator = eventAggregator; // 登録完了イベントを発行するために必要
+
+            // 登録ページから戻って来た時にリフレッシュがかかる
+            this.eventAggregator.GetEvent<RegisteredAppDataEvent>().Subscribe(action: async () => await this.ReadAppDataAsync());
 
             // データを Azure から読み込むコマンド。読み込んでいる間は CanExecute が false を返す
             this.ReadAppDataCommand = new DelegateCommand(
@@ -39,6 +44,7 @@ namespace Xamalist.ViewModels
             this.ReadAppDataAsync();
         }
 
+        private IEventAggregator eventAggregator;
         private IAppDataService appDataService;
         private IEnumerable<AppData> appDatas;
         public IEnumerable<AppData> AppDatas

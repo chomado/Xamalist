@@ -53,6 +53,7 @@
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\RegisterPageViewModel.cs" />
+    <Compile Include="Commons\RegisteredAppDataEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">

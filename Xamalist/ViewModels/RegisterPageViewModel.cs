@@ -6,16 +6,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Prism.Services;
+using Prism.Events;
 
 namespace Xamalist.ViewModels
 {
     public class RegisterPageViewModel : BindableBase
     {
-        public RegisterPageViewModel(INavigationService navigationService, IAppDataService appDataService, IPageDialogService pageDialogService)
+        public RegisterPageViewModel(INavigationService navigationService, IAppDataService appDataService, IPageDialogService pageDialogService, IEventAggregator eventAggregator)
         {
             this.navigationService = navigationService; // ページ遷移に必要
             this.appDataService = appDataService; // データの登録に必要
             this.pageDialogService = pageDialogService; // アラートを出すために必要な人
+            this.eventAggregator = eventAggregator; // 登録完了イベントを発行するために必要
 
             // 登録ボタンが押された時のコマンドを定義
             this.RegisterCommand = new DelegateCommand(
@@ -28,6 +30,7 @@ namespace Xamalist.ViewModels
         private INavigationService navigationService;
         private IAppDataService appDataService;
         private IPageDialogService pageDialogService;
+        private IEventAggregator eventAggregator;
 
         // 登録ボタン
         public DelegateCommand RegisterCommand { get; }
@@ -72,6 +75,9 @@ namespace Xamalist.ViewModels
 
             // 前の画面に戻る
             await this.navigationService.GoBackAsync();
+
+            // 「登録完了」イベントを発行する
+            this.eventAggregator.GetEvent<RegisteredAppDataEvent>().Publish();
         }
 	}
 }
