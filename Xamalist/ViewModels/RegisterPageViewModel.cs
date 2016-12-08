@@ -9,17 +9,25 @@ using Prism.Services;
 using Prism.Events;
 using Xamalist.Commons;
 using Xamalist.Services;
+using Plugin.Media.Abstractions;
 
 namespace Xamalist.ViewModels
 {
     public class RegisterPageViewModel : BindableBase
     {
-        public RegisterPageViewModel(INavigationService navigationService, IAppDataService appDataService, IPageDialogService pageDialogService, IEventAggregator eventAggregator)
+        public RegisterPageViewModel(
+            INavigationService navigationService, 
+            IAppDataService appDataService, 
+            IPageDialogService pageDialogService, 
+            IEventAggregator eventAggregator,
+            IFileUploadService fileUploadService
+        )
         {
             this.navigationService = navigationService; // ページ遷移に必要
             this.appDataService = appDataService; // データの登録に必要
             this.pageDialogService = pageDialogService; // アラートを出すために必要な人
             this.eventAggregator = eventAggregator; // 登録完了イベントを発行するために必要
+            this.fileUploadService = fileUploadService; // ファイルをアップロードするために必要
 
             // 登録ボタンが押された時のコマンドを定義
             this.RegisterCommand = new DelegateCommand(
@@ -39,10 +47,13 @@ namespace Xamalist.ViewModels
         private IAppDataService appDataService;
         private IPageDialogService pageDialogService;
         private IEventAggregator eventAggregator;
+        private IFileUploadService fileUploadService;
 
         // 登録ボタン
         public DelegateCommand RegisterCommand { get; }
 
+        // アイコン画像
+        public MediaFile IconImage { get; set; }
 
         // データ読み込み中などにスピナーを表示するために使う値
         private bool isBusy;
@@ -71,6 +82,10 @@ namespace Xamalist.ViewModels
              * → 勝手にリストが「更新」される
              */
             this.IsBusy = true;
+
+            var iconUrl = await this.fileUploadService.UploadAsync(this.IconImage);
+            this.registeringAppData.IconImageUrl = iconUrl.AbsoluteUri;
+
             await this.appDataService.InsertAppDataAsync(this.RegisteringAppData);
             this.IsBusy = false;
 

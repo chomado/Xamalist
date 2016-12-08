@@ -11,6 +11,8 @@ using Prism.Unity;
 using Microsoft.Practices.Unity;
 using Microsoft.WindowsAzure.MobileServices;
 using Plugin.Permissions;
+using Xamalist.Services;
+using Xamalist.iOS.Services;
 
 // Android のマニフェストに対しての処理。パーミッションを求めている
 [assembly: UsesFeature("android.hardware.camera", Required = false)]
@@ -44,7 +46,7 @@ namespace Xamalist.Droid
     {
         public void RegisterTypes(IUnityContainer container)
         {
-
+            container.RegisterType<IFileUploadService, FileUploadService>(new ContainerControlledLifetimeManager() /* これでシングルトンにする */);
         }
     }
 }

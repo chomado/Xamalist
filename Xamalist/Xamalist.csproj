@@ -55,6 +55,7 @@
     <Compile Include="ViewModels\RegisterPageViewModel.cs" />
     <Compile Include="Commons\RegisteredAppDataEvent.cs" />
     <Compile Include="Commons\StringExtentions.cs" />
+    <Compile Include="Services\IFileUploadService.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml">
@@ -116,6 +117,8 @@
     <Reference Include="Plugin.Media">
       <HintPath>..\packages\Xam.Plugin.Media.2.6.1\lib\portable-net45+wp80+win8+wpa81\Plugin.Media.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

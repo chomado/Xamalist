@@ -8,6 +8,9 @@ using Microsoft.WindowsAzure.MobileServices;
 using Prism;
 using Prism.Unity;
 using UIKit;
+using Microsoft.Practices.Unity;
+using Xamalist.Services;
+using Xamalist.iOS.Services;
 
 namespace Xamalist.iOS
 {
@@ -41,7 +44,7 @@ namespace Xamalist.iOS
     {
         public void RegisterTypes(IUnityContainer container)
         {
-
+            container.RegisterType<IFileUploadService, FileUploadService>(new ContainerControlledLifetimeManager() /* これでシングルトンにする */);
         }
     }
 }
