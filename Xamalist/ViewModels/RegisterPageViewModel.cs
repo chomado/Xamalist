@@ -5,14 +5,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Prism.Services;
 
 namespace Xamalist.ViewModels
 {
     public class RegisterPageViewModel : BindableBase
     {
-        public RegisterPageViewModel(IAppDataService appDataService)
+        public RegisterPageViewModel(IAppDataService appDataService, IPageDialogService pageDialogService)
         {
-            this.appDataService = appDataService;
+            this.appDataService = appDataService; // データの登録に必要
+            this.pageDialogService = pageDialogService; // アラートを出すために必要な人
 
             // 登録ボタンが押された時のコマンドを定義
             this.RegisterCommand = new DelegateCommand(
@@ -23,6 +25,7 @@ namespace Xamalist.ViewModels
         }
 
         private IAppDataService appDataService;
+        private IPageDialogService pageDialogService;
 
         // 登録ボタン
         public DelegateCommand RegisterCommand { get; }
@@ -56,6 +59,12 @@ namespace Xamalist.ViewModels
             this.IsBusy = true;
             await this.appDataService.InsertAppDataAsync(this.RegisteringAppData);
             this.IsBusy = false;
+
+            await this.pageDialogService.DisplayAlertAsync(
+                title: "登録完了",
+                message: $"{this.registeringAppData.Name} の登録が完了しました",
+                cancelButton: "OK"
+            );
         }
 	}
 }
