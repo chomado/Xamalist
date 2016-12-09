@@ -36,9 +36,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MainPageViewModel.cs" />
-    <Compile Include="Business Objects\AppData.cs" />
-    <Compile Include="Business Objects\Author.cs" />
-    <Compile Include="Business Objects\AppCategory.cs" />
+    <Compile Include="BusinessObjects\AppData.cs" />
+    <Compile Include="BusinessObjects\Author.cs" />
+    <Compile Include="BusinessObjects\AppCategory.cs" />
     <Compile Include="Services\IAppDataService.cs" />
     <Compile Include="Services\AppDataService.cs" />
     <Compile Include="Commons\Consts.cs" />
@@ -125,7 +125,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Business Objects\" />
+    <Folder Include="BusinessObjects\" />
     <Folder Include="Services\" />
     <Folder Include="Commons\" />
     <Folder Include="Controls\" />
