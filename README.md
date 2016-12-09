@@ -30,16 +30,21 @@ UIは XAML(ザムル)というマークアップ言語を使っています。
 clone したままでは動きません。    
 サーバURLを記述した `Xamalist/Commons/Consts.cs` ファイルを gitignore しているので、     
 clone したら そのファイルを作ってサーバURLを記述してください。    
-(サーバ環境は各自 `Microsoft Azure Mobile Apps` を使い用意していただく必要があります。)
+(サーバ環境は各自 `Microsoft Azure Mobile Apps` を使い用意していただく必要があります。DBのスキーマなどは `Xamalist/BusinessObjects/`下のクラスを参照してください)
 
 ````csharp
 using System;
 namespace Xamalist
 {
+    // 外部に公開したくない文字列などの設定ファイル
     public static class Consts
     {
-        // 接続先サーバのURL
-        public static readonly string AzureWebsitesUrl = "https://（サーバのURL文字列）.azurewebsites.net";
+        // 接続先の Webサーバのアドレス
+        public static readonly string AzureWebsitesUrl = "https://(サーバーのURL文字列).azurewebsites.net";
+
+        // Azure 上のストレージの接続文字列
+        public static readonly string StorageConnectionString = "めっちゃ長い接続文字列。Azureのポータルの「アクセスキー」から取って来てね";
+        // 参照:『Microsoft Azure Storage の概要』 https://docs.microsoft.com/ja-jp/azure/storage/storage-introduction
     }
 }
 ````
