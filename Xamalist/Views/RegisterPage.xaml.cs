@@ -7,12 +7,12 @@ using Xamarin.Forms;
 
 namespace Xamalist.Views
 {
-	public partial class RegisterPage : ContentPage
-	{
-		public RegisterPage()
-		{
-			InitializeComponent();
-		}
+    public partial class RegisterPage : ContentPage
+    {
+        public RegisterPage()
+        {
+            InitializeComponent();
+        }
 
         public async void OnImageButtonClicked(Object sender, EventArgs args)
         { 
@@ -34,5 +34,5 @@ namespace Xamalist.Views
             var viewModel = (RegisterPageViewModel)this.BindingContext;
             viewModel.IconImage = file; // 選んだファイルを ViewModel に設定する
         }
-	}
+    }
 }

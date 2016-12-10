@@ -79,7 +79,9 @@
 		</StackLayout>
 
 		<!-- 読み込み中はスピナーを表示する -->
-		<ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
+		<ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"
+           HorizontalOptions="Center"
+           VerticalOptions="Center"/>
 	</Grid>
 	
 </ContentPage>
