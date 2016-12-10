@@ -10,28 +10,28 @@ namespace Xamalist.Views
             InitializeComponent();
         }
 
-		// リストのアイテムがタップされた時に呼ばれる
-		public void OnItemTapped(object sender, SelectedItemChangedEventArgs e)
-		{
-			// 未選択状態の時は何もしない
-			if (e.SelectedItem == null)
-			{
-				return;
-			}
-				
-			var listView = (ListView)sender;
+        // リストのアイテムがタップされた時に呼ばれる
+        public void OnItemTapped(object sender, SelectedItemChangedEventArgs e)
+        {
+            // 未選択状態の時は何もしない
+            if (e.SelectedItem == null)
+            {
+                return;
+            }
 
-			// 渡ってきた、アプリの情報(AppDataのアイテム)
-			var appDataItem = (AppData)e.SelectedItem;
+            var listView = (ListView)sender;
 
-			// タップしても色が変わらないようにする処理
-			listView.SelectedItem = null;
+            // 渡ってきた、アプリの情報(AppDataのアイテム)
+            var appDataItem = (AppData)e.SelectedItem;
 
-			var mainPageViewModel = (MainPageViewModel)this.BindingContext;
+            // タップしても色が変わらないようにする処理
+            listView.SelectedItem = null;
 
-			// 詳細ページへの遷移のコマンド実行
-			mainPageViewModel.NavigateToDetailCommand.Execute(appDataItem.Id);
-		}
+            var mainPageViewModel = (MainPageViewModel)this.BindingContext;
+
+            // 詳細ページへの遷移のコマンド実行
+            mainPageViewModel.NavigateToDetailCommand.Execute(appDataItem.Id);
+        }
     }
 }
 

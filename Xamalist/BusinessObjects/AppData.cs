@@ -16,8 +16,8 @@ namespace Xamalist
         // 内部で持つ情報。表示非表示フラグ。管理者によるチェックが済んだもののみ表示される
         public bool IsVisible { get; set; }
 
-		// このアプリはアプリ開発者本人によって登録されたか
-		public bool IsRegisteredByItsDeveloper { get; set; }
+        // このアプリはアプリ開発者本人によって登録されたか
+        public bool IsRegisteredByItsDeveloper { get; set; }
 
         // アプリの名前
         private string name;
@@ -30,7 +30,7 @@ namespace Xamalist
         // アプリのアイコンの画像URL
         public string IconImageUrl { get; set; }
 
-		// このアプリを一言で説明すると(20字くらい)（例「Xamarin製アプリ一覧アプリ」）
+        // このアプリを一言で説明すると(20字くらい)（例「Xamarin製アプリ一覧アプリ」）
         private string description;
         public string Description
         {
@@ -39,8 +39,8 @@ namespace Xamalist
         }
 
 
-		// ストアのURL。iOS/ Android/ Windows/ Mac
-		public string StoreUrlIos { get; set; }
+        // ストアのURL。iOS/ Android/ Windows/ Mac
+        public string StoreUrlIos { get; set; }
         public string StoreUrlAndroid { get; set; }
         public string StoreUrlWindows { get; set; }
         public string StoreUrlMac { get; set; }
@@ -54,7 +54,7 @@ namespace Xamalist
         // 「Xamarinで作ったよ！」というアナウンスをしているブログ記事のURL
         public string AnnoucingArticleUrl { get; set; }
 
-		// ーーーー dev だけのプロパティ ーーーーー 
+        // ーーーー dev だけのプロパティ ーーーーー 
 
         // 書いたアプリのソースコード置き場の URL。GitHub など
         public string SourceCodeUrl { get; set; }
@@ -70,10 +70,10 @@ namespace Xamalist
         // 使ったライブラリについて。Prism/ SkiaSharp etc..
         public string UsedLibrary { get; set; }
 
-		// 苦労したところなど長文コメント
-		public string Comment { get; set; }
+        // 苦労したところなど長文コメント
+        public string Comment { get; set; }
 
-		// ーーーーーーーーーーーーーーーーーーーー
+        // ーーーーーーーーーーーーーーーーーーーー
 
-	}
+    }
 }
