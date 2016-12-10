@@ -4,7 +4,7 @@
 
 よく「Xamarinを使ったらどんなアプリが作れるの？」など聞かれるので、欲しいと思ったので作りました！
 
-![Startup project](./doc_image/app_screenshot.png)
+![Startup project](./doc_image/app_screenshot.jpg)
 
 C# だけで、iOS/ Android アプリを作っています。Swift/Obj-C も Java も 1行も書いていません。    
 UIは XAML(ザムル)というマークアップ言語を使っています。    
@@ -15,6 +15,8 @@ UIは XAML(ザムル)というマークアップ言語を使っています。
 早く完成させてストアに上げたいなあ
 
 ## 使っているもの
+
+![Startup project](./doc_image/architecture.jpg)
 
 ### クライアント:
 
