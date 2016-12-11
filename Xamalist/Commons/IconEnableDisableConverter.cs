@@ -10,7 +10,8 @@ namespace Xamalist.Commons
 		{
 		}
 
-		// ViewModel から画面に行くときの変換処理
+		// ViewModel から画面に行くときの変換処理。
+        // 一覧画面のアイコンの命名規則が「androidDisable.png」「iosEnable.png」などであることが前提のコード
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
 			var osName = (string)parameter;
