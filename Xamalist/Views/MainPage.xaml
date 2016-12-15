@@ -17,6 +17,8 @@
 	</ContentPage.Resources>
 	
 	<ContentPage.ToolbarItems>
+		<!-- クラッシュするボタン（テスト用） -->
+		<ToolbarItem Text="Crash!!" Command="{Binding CrashCommand}" />
 		<!-- 新規登録ボタン -->
 		<ToolbarItem Text="登録" Command="{Binding NavigateToRegisterPageCommand}" />
 	</ContentPage.ToolbarItems>

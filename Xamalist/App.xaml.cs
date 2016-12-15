@@ -16,6 +16,8 @@ namespace Xamalist
         { 
             // Mobile Center 用のコード
             MobileCenter.Start(services: new System.Type[] { typeof(Analytics), typeof(Crashes) });
+            // クラッシュのデータ収集を有効化する
+            Crashes.Enabled = true;
         }
 
         // アプリのエントリーポイント

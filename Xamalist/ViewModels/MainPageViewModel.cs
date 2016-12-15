@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Xamalist.Commons;
 using Xamalist.Services;
 using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 
 namespace Xamalist.ViewModels
 {
@@ -53,6 +54,15 @@ namespace Xamalist.ViewModels
                     await navigationService.NavigateAsync(name: "RegisterPage");
                 }
             );
+            // クラッシュするボタン（テスト用） 
+            this.CrashCommand = new DelegateCommand(
+                executeMethod: () => 
+                { 
+                    Analytics.TrackEvent("Crash clicked", null);
+                    Crashes.GenerateTestCrash();
+                    //throw new InvalidOperationException("error"); 
+                }
+            );
 
             // 初回表示時にデータがリフレッシュされる
             this.ReadAppDataAsync();
@@ -74,6 +84,9 @@ namespace Xamalist.ViewModels
             get { return this.isBusy; }
             set { SetProperty(ref this.isBusy, value); }
         }
+
+        // クラッシュするボタン（テスト用） 
+        public DelegateCommand CrashCommand { get; }
 
         // データを読み込む時に呼ばれるコマンド
         public DelegateCommand ReadAppDataCommand { get; }
@@ -103,7 +116,6 @@ namespace Xamalist.ViewModels
         // 画面遷移してきたときに呼ばれる
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-
         }
     }
 }
