@@ -8,9 +8,11 @@ using Microsoft.WindowsAzure.MobileServices;
 using Prism;
 using Prism.Unity;
 using UIKit;
-using Microsoft.Practices.Unity;
 using Xamalist.Services;
 using Xamalist.iOS.Services;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 
 namespace Xamalist.iOS
 {
@@ -33,6 +35,10 @@ namespace Xamalist.iOS
 
             // Azure Mobile Service の初期化
             CurrentPlatform.Init();
+
+            // Mobile Center 用
+            MobileCenter.Start(appSecret: Consts.MobileCenterAppSecretIos,
+                               services: new Type[] { typeof(Analytics), typeof(Crashes) });
 
             LoadApplication(new App(new iOSInitializer()));
 
