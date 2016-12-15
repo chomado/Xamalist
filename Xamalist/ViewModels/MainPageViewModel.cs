@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xamalist.Commons;
 using Xamalist.Services;
+using Microsoft.Azure.Mobile.Analytics;
 
 namespace Xamalist.ViewModels
 {
@@ -19,6 +20,9 @@ namespace Xamalist.ViewModels
         */
         public MainPageViewModel(IAppDataService appDataService, INavigationService navigationService, IEventAggregator eventAggregator)
         {
+            // Mobile Center の Analytics を有効化
+            Analytics.Enabled = true;
+
             this.appDataService = appDataService;
             this.eventAggregator = eventAggregator; // 登録完了イベントを発行するために必要
 
@@ -34,12 +38,20 @@ namespace Xamalist.ViewModels
 
             // 詳細ページへと遷移する時のコマンドを定義
             this.NavigateToDetailCommand = new DelegateCommand<string>(
-                executeMethod: async id => await navigationService.NavigateAsync(name: $"DetailPage?id={id}")
+                executeMethod: async id =>
+                {
+                    Analytics.TrackEvent($"MainPage App List Item clicked", new Dictionary<string, string> { { "ID", $"{id}" } });
+                    await navigationService.NavigateAsync(name: $"DetailPage?id={id}");
+                }
             );
 
             // 登録ページへと遷移する時のコマンドを定義
             this.NavigateToRegisterPageCommand = new DelegateCommand(
-                executeMethod: async () => await navigationService.NavigateAsync(name: "RegisterPage")
+                executeMethod: async () =>
+                {
+                    Analytics.TrackEvent("Register clicked", null);
+                    await navigationService.NavigateAsync(name: "RegisterPage");
+                }
             );
 
             // 初回表示時にデータがリフレッシュされる
