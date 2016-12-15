@@ -4,12 +4,19 @@ using Xamalist.Views;
 using Microsoft.Practices.Unity;
 using Xamarin.Forms;
 using Xamalist.Services;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 
 namespace Xamalist
 {
     public partial class App : PrismApplication
     {
-        public App(IPlatformInitializer initializer = null) : base(initializer) { }
+        public App(IPlatformInitializer initializer = null) : base(initializer) 
+        { 
+            // Mobile Center 用のコード
+            MobileCenter.Start(services: new System.Type[] { typeof(Analytics), typeof(Crashes) });
+        }
 
         // アプリのエントリーポイント
         protected override void OnInitialized()

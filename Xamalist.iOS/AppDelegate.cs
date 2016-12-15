@@ -36,9 +36,8 @@ namespace Xamalist.iOS
             // Azure Mobile Service の初期化
             CurrentPlatform.Init();
 
-            // Mobile Center 用
-            MobileCenter.Start(appSecret: Consts.MobileCenterAppSecretIos,
-                               services: new Type[] { typeof(Analytics), typeof(Crashes) });
+            // Mobile Center 用のコード
+            MobileCenter.Configure(appSecret: Consts.MobileCenterAppSecretIos);
 
             LoadApplication(new App(new iOSInitializer()));
 
