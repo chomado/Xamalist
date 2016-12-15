@@ -35,7 +35,9 @@ namespace Xamalist
 			this.Container.RegisterTypeForNavigation<RegisterPage>(); // 登録ページも登録
 
             // コンテナに モバイルサービスクライアントを登録
-            var client = new MobileServiceClient(mobileAppUri: Consts.AzureWebsitesUrl);
+            var client = new MobileServiceClient(mobileAppUri: Consts.MobileCenterDbUrl); //
+            //var client = new MobileServiceClient(mobileAppUri: Consts.AzureWebsitesUrl); // Azure
+
             this.Container.RegisterInstance<IMobileServiceClient>(client);
             // AppData をコンテナに シングルトンで登録
             this.Container.RegisterType<IAppDataService, AppDataService>(new ContainerControlledLifetimeManager());

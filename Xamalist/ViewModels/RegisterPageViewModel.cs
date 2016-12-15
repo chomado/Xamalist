@@ -83,8 +83,8 @@ namespace Xamalist.ViewModels
              */
             this.IsBusy = true;
 
-            var iconUrl = await this.fileUploadService.UploadAsync(this.IconImage);
-            this.registeringAppData.IconImageUrl = iconUrl.AbsoluteUri;
+            //var iconUrl = await this.fileUploadService.UploadAsync(this.IconImage);
+            //this.registeringAppData.IconImageUrl = iconUrl.AbsoluteUri;
 
             await this.appDataService.InsertAppDataAsync(this.RegisteringAppData);
             this.IsBusy = false;

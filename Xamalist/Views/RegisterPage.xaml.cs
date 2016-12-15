@@ -29,7 +29,7 @@ namespace Xamalist.Views
             Debug.WriteLine(file.Path);
 
             // プレビューを出す
-            this.ImagePreview.Source = ImageSource.FromStream(file.GetStream);
+            //this.ImagePreview.Source = ImageSource.FromStream(file.GetStream);
 
             var viewModel = (RegisterPageViewModel)this.BindingContext;
             viewModel.IconImage = file; // 選んだファイルを ViewModel に設定する
