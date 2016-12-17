@@ -13,6 +13,9 @@ using Microsoft.WindowsAzure.MobileServices;
 using Plugin.Permissions;
 using Xamalist.Services;
 using Xamalist.iOS.Services;
+using Microsoft.Azure.Mobile;
+using Microsoft.Azure.Mobile.Analytics;
+using Microsoft.Azure.Mobile.Crashes;
 
 // Android のマニフェストに対しての処理。パーミッションを求めている
 [assembly: UsesFeature("android.hardware.camera", Required = false)]
@@ -30,6 +33,7 @@ namespace Xamalist.Droid
             base.OnCreate(bundle);
 
             CurrentPlatform.Init();
+            MobileCenter.Configure(Consts.MobileCenterAppSecretIos);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
