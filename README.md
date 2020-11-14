@@ -46,7 +46,7 @@ namespace Xamalist
 
         // Azure 上のストレージの接続文字列
         public static readonly string StorageConnectionString = "めっちゃ長い接続文字列。Azureのポータルの「アクセスキー」から取って来てね";
-        // 参照:『Microsoft Azure Storage の概要』 https://docs.microsoft.com/ja-jp/azure/storage/storage-introduction
+        // 参照:『Microsoft Azure Storage の概要』 https://docs.microsoft.com/azure/storage/storage-introduction?WT.mc_id=dotnet-0000-machiy
     }
 }
 ````
